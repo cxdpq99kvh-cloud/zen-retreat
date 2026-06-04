@@ -3,18 +3,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-    ],
-    // Увеличиваем таймаут загрузки изображений
-    minimumCacheTTL: 60,
+    unoptimized: true, // Важно для Netlify — отключаем оптимизацию изображений
   },
-  // Увеличиваем таймаут для медленных запросов
+  // Отключаем Turbopack для production (Netlify его плохо поддерживает)
   experimental: {
-    // Отключаем строгий режим для разработки (может помочь с таймаутами)
+    // Убираем экспериментальные функции
   },
 };
 
