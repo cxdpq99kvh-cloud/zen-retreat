@@ -1,31 +1,14 @@
 // src/app/page.tsx
-"use client";
-
-import { useState } from "react";
 import RetreatCard from "@/components/RetreatCard";
-import { retreats, Retreat } from "@/data/retreats";
+import { retreats } from "@/data/retreats";
 import PhilosophySection from "@/components/PhilosophySection";
 import ProcessSection from "@/components/ProcessSection";
 import ShopSection from "@/components/ShopSection";
 import HeroText from "@/components/HeroText";
 import Stardust from "@/components/Stardust";
 import Footer from "@/components/Footer";
-import RetreatModal from "@/components/RetreatModal";
 
 export default function Home() {
-  const [selectedRetreat, setSelectedRetreat] = useState<Retreat | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = (retreat: Retreat) => {
-    setSelectedRetreat(retreat);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setTimeout(() => setSelectedRetreat(null), 200);
-  };
-
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -82,11 +65,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {retreats.map((retreat) => (
-              <RetreatCard 
-                key={retreat.id} 
-                retreat={retreat} 
-                onOpenModal={() => openModal(retreat)}
-              />
+              <RetreatCard key={retreat.id} retreat={retreat} />
             ))}
           </div>
         </div>
@@ -96,13 +75,6 @@ export default function Home() {
       <ProcessSection />
       <ShopSection />
       <Footer />
-
-      {/* Модальное окно ретрита */}
-      <RetreatModal
-        retreat={selectedRetreat}
-        isOpen={isModalOpen}
-        onClose={closeModal}
-      />
     </main>
   );
 }
