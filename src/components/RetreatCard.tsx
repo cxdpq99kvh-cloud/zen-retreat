@@ -4,6 +4,7 @@ import Link from "next/link";
 
 type RetreatCardProps = {
   retreat: Retreat;
+  onOpenModal?: () => void;
 };
 
 export default function RetreatCard({ retreat }: RetreatCardProps) {
