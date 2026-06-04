@@ -7,12 +7,14 @@ import CartSidebar from "@/components/CartSidebar";
 import CartButton from "@/components/CartButton";
 import Header from "@/components/Header";
 
+// Fraunces НЕ поддерживает кириллицу — только латиница
 const serif = Fraunces({
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-serif",
 });
 
+// Manrope поддерживает кириллицу
 const sans = Manrope({
   subsets: ["latin", "cyrillic"],
   weight: ["300", "400", "500", "600"],
