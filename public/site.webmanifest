@@ -1,0 +1,21 @@
+{
+  "name": "Пространство Тишины",
+  "short_name": "Тишина",
+  "description": "Ретриты и медитации на Урале",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f0",
+  "theme_color": "#8b7355",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
