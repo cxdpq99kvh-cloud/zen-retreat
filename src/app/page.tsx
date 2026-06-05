@@ -7,7 +7,7 @@ import ShopSection from "@/components/ShopSection";
 import HeroText from "@/components/HeroText";
 import Stardust from "@/components/Stardust";
 import Footer from "@/components/Footer";
-
+// Trigger redeploy
 export default function Home() {
   return (
     <main className="min-h-screen">
