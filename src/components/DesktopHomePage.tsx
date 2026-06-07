@@ -27,8 +27,8 @@ export default function DesktopHomePage() {
           <HeroText />
           
           <p className="text-lg md:text-xl text-muted max-w-xl mx-auto mb-12 leading-relaxed font-light">
-            Оставь городской шум позади. Погрузись в энергетические практики 
-            и медитации в самых живописных уголках уральской природы.
+            Чем глубже вы в проблемах, тем тише внутренний голос.
+            Время услышать не «надо», а своё «хочу».
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
