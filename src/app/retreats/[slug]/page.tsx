@@ -333,86 +333,103 @@ export default function RetreatPage() {
         </section>
       )}
 
-      {/* Что включено */}
-      {retreat.included && retreat.included.length > 0 && (
-        <section className="py-16 md:py-24 px-6 md:px-24">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-4xl font-serif text-foreground mb-12 md:mb-16 text-center">
-              Что включено
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {retreat.included.map((item, idx) => (
-                <div 
-                  key={idx} 
-                  className="group relative bg-gradient-to-br from-background to-secondary/20 rounded-2xl p-8 border border-foreground/5 hover:border-accent/30 hover:shadow-2xl transition-all duration-500"
-                >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl group-hover:bg-accent/10 transition-colors duration-500" />
-                  <div className="relative flex items-start gap-5">
-                    <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors">
-                      <Check className="w-7 h-7 text-accent" />
+      {/* Детали курса — минималистичный премиальный блок */}
+      <section className="py-16 md:py-24 px-6 md:px-24">
+        <div className="max-w-4xl mx-auto">
+          {/* Что включено */}
+          {retreat.included && retreat.included.length > 0 && (
+            <div className="relative mb-12 md:mb-16">
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+              
+              <div className="pt-10 md:pt-12">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif mb-8 leading-[1.1] tracking-tight">
+                  <span className="bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent">
+                    Что включено
+                  </span>
+                </h3>
+                
+                <div className="space-y-4 md:space-y-5">
+                  {retreat.included.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-4 group">
+                      <div className="w-1.5 h-1.5 bg-accent rounded-full mt-3 group-hover:scale-150 transition-transform duration-300 shrink-0" />
+                      <p className="text-base md:text-lg text-muted leading-relaxed font-light group-hover:text-foreground transition-colors duration-300">
+                        {item}
+                      </p>
                     </div>
-                    <div>
-                      <p className="text-lg md:text-xl font-serif text-foreground leading-relaxed">{item}</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          )}
 
-      {/* Что от вас потребуется */}
-      {retreat.required && retreat.required.length > 0 && (
-        <section className="py-16 md:py-24 px-6 md:px-24 bg-secondary/20">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-4xl font-serif text-foreground mb-12 md:mb-16 text-center">Что от вас потребуется</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {retreat.required.map((item, idx) => (
-                <div 
-                  key={idx} 
-                  className="group bg-background rounded-2xl p-6 md:p-8 border border-foreground/5 hover:border-accent/20 hover:shadow-xl transition-all duration-500"
-                >
-                  <div className="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
-                    <span className="text-accent text-2xl">📋</span>
-                  </div>
-                  <p className="text-foreground font-sans text-base md:text-lg leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* FAQ */}
-      {retreat.faq && retreat.faq.length > 0 && (
-        <section className="py-16 md:py-24 px-6 md:px-24">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-4xl font-serif text-foreground mb-12 md:mb-16 text-center">Частые вопросы</h2>
-            <div className="space-y-4">
-              {retreat.faq.map((faq, idx) => (
-                <div 
-                  key={idx} 
-                  className="group bg-gradient-to-br from-secondary/20 to-background rounded-2xl overflow-hidden border border-foreground/5 hover:border-accent/20 transition-all duration-300"
-                >
-                  <button
-                    onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                    className="w-full px-6 md:px-8 py-5 md:py-6 flex items-center justify-between text-left hover:bg-secondary/30 transition-colors"
-                  >
-                    <span className="text-base md:text-xl font-serif text-foreground pr-4 group-hover:text-accent transition-colors">{faq.question}</span>
-                    <div className={`w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-all duration-300 ${openFaq === idx ? "rotate-45" : ""}`}>
-                      <span className="text-2xl text-accent font-light">+</span>
+          {/* Что от вас потребуется */}
+          {retreat.required && retreat.required.length > 0 && (
+            <div className="relative mb-12 md:mb-16">
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+              
+              <div className="pt-10 md:pt-12">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif mb-8 leading-[1.1] tracking-tight">
+                  <span className="bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent">
+                    Что от вас потребуется
+                  </span>
+                </h3>
+                
+                <div className="space-y-4 md:space-y-5">
+                  {retreat.required.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-4 group">
+                      <div className="w-1.5 h-1.5 bg-accent rounded-full mt-3 group-hover:scale-150 transition-transform duration-300 shrink-0" />
+                      <p className="text-base md:text-lg text-muted leading-relaxed font-light group-hover:text-foreground transition-colors duration-300">
+                        {item}
+                      </p>
                     </div>
-                  </button>
-                  <div className={`overflow-hidden transition-all duration-500 ${openFaq === idx ? "max-h-96" : "max-h-0"}`}>
-                    <p className="px-6 md:px-8 pb-5 md:pb-6 text-muted leading-relaxed font-sans text-sm md:text-base">{faq.answer}</p>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          )}
+
+          {/* Частые вопросы */}
+          {retreat.faq && retreat.faq.length > 0 && (
+            <div className="relative">
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+              
+              <div className="pt-10 md:pt-12 pb-10 md:pb-12">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif mb-8 leading-[1.1] tracking-tight">
+                  <span className="bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent">
+                    Частые вопросы
+                  </span>
+                </h3>
+                
+                <div className="space-y-6 md:space-y-8">
+                  {retreat.faq.map((faq, idx) => (
+                    <div key={idx} className="group">
+                      <button
+                        onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                        className="w-full flex items-start justify-between gap-4 text-left"
+                      >
+                        <span className="text-lg md:text-xl font-serif text-foreground group-hover:text-accent transition-colors duration-300 leading-snug">
+                          {faq.question}
+                        </span>
+                        <span className={`text-accent text-2xl font-light shrink-0 transition-transform duration-500 ${openFaq === idx ? "rotate-45" : ""}`}>
+                          +
+                        </span>
+                      </button>
+                      <div className={`overflow-hidden transition-all duration-500 ${openFaq === idx ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
+                        <p className="text-base text-muted leading-relaxed font-light pl-0">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <Footer />
 
       <Footer />
     </main>
