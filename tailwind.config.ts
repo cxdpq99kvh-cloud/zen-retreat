@@ -10,15 +10,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Наша природная палитра
-        background: "#F9F8F6", // Теплый алебастр
-        foreground: "#2A3B32", // Глубокий хвойный
+        background: "#F9F8F6",
+        foreground: "#2A3B32",
         accent: {
-          DEFAULT: "#D4A373", // Мягкая глина
-          hover: "#C39262",   // Глина при наведении
+          DEFAULT: "#D4A373",
+          hover: "#C39262",
         },
-        secondary: "#E9EDC9", // Светлый мох
-        muted: "#8A9A86",     // Приглушенный шалфей (для второстепенного текста)
+        secondary: "#E9EDC9",
+        muted: "#8A9A86",
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "serif"],
@@ -27,7 +26,9 @@ const config: Config = {
       animation: {
         'fade-in': 'fadeIn 1.5s ease-in-out forwards',
         'float': 'float 6s ease-in-out infinite',
-        'gradient-x': 'gradient-x 6s ease infinite', // ← НОВАЯ анимация
+        'gradient-x': 'gradient-x 6s ease infinite',
+        'slide-in-right': 'slide-in-right 0.5s ease-out',  // ← НОВОЕ
+        'slide-in-left': 'slide-in-left 0.5s ease-out',   // ← НОВОЕ
       },
       keyframes: {
         fadeIn: {
@@ -38,7 +39,7 @@ const config: Config = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         },
-        'gradient-x': { // ← НОВАЯ keyframe
+        'gradient-x': {
           '0%, 100%': {
             'background-size': '200% 200%',
             'background-position': 'left center'
@@ -47,6 +48,14 @@ const config: Config = {
             'background-size': '200% 200%',
             'background-position': 'right center'
           },
+        },
+        'slide-in-right': {  // ← НОВОЕ
+          '0%': { opacity: '0', transform: 'translateX(30px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        'slide-in-left': {  // ← НОВОЕ
+          '0%': { opacity: '0', transform: 'translateX(-30px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
       }
     },

@@ -13,6 +13,7 @@ export default function RetreatPage() {
   const retreat = retreats.find((r) => r.slug === params.slug);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [currentWeek, setCurrentWeek] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
   const [slideDirection, setSlideDirection] = useState<"left" | "right">("right");
 
   if (!retreat) {
@@ -24,15 +25,27 @@ export default function RetreatPage() {
   }
 
   const nextWeek = () => {
-    if (!retreat.weeks) return;
+    if (!retreat.weeks || isAnimating) return;
+    setIsAnimating(true);
     setSlideDirection("right");
     setCurrentWeek((prev) => (prev + 1) % retreat.weeks!.length);
+    setTimeout(() => setIsAnimating(false), 500);
   };
 
   const prevWeek = () => {
-    if (!retreat.weeks) return;
+    if (!retreat.weeks || isAnimating) return;
+    setIsAnimating(true);
     setSlideDirection("left");
     setCurrentWeek((prev) => (prev - 1 + retreat.weeks!.length) % retreat.weeks!.length);
+    setTimeout(() => setIsAnimating(false), 500);
+  };
+
+  const goToWeek = (idx: number) => {
+    if (isAnimating || idx === currentWeek) return;
+    setIsAnimating(true);
+    setSlideDirection(idx > currentWeek ? "right" : "left");
+    setCurrentWeek(idx);
+    setTimeout(() => setIsAnimating(false), 500);
   };
 
   return (
@@ -94,7 +107,7 @@ export default function RetreatPage() {
       </section>
 
       {/* Программа курса со свайпером (для онлайн-курсов) */}
-      {retreat.weeks && (
+      {retreat.weeks && retreat.weeks.length > 0 && (
         <section className="py-16 px-6 md:px-24 bg-secondary/20">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-12 text-center">Программа курса</h2>
@@ -105,10 +118,7 @@ export default function RetreatPage() {
                 {retreat.weeks.map((week, idx) => (
                   <button
                     key={idx}
-                    onClick={() => {
-                      setSlideDirection(idx > currentWeek ? "right" : "left");
-                      setCurrentWeek(idx);
-                    }}
+                    onClick={() => goToWeek(idx)}
                     className={`px-6 py-3 rounded-full font-sans text-sm transition-all duration-300 ${
                       currentWeek === idx
                         ? "bg-accent text-white"
@@ -125,9 +135,9 @@ export default function RetreatPage() {
                 <div
                   key={currentWeek}
                   className={`transition-all duration-500 ease-out ${
-                    slideDirection === "right" 
-                      ? "animate-slide-in-right" 
-                      : "animate-slide-in-left"
+                    slideDirection === "right"
+                      ? "animate-[slide-in-right_0.5s_ease-out]"
+                      : "animate-[slide-in-left_0.5s_ease-out]"
                   }`}
                 >
                   <div className="flex items-center gap-4 mb-6">
@@ -170,7 +180,7 @@ export default function RetreatPage() {
       )}
 
       {/* Что включено */}
-      {retreat.included && (
+      {retreat.included && retreat.included.length > 0 && (
         <section className="py-16 px-6 md:px-24">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-12 text-center">
@@ -191,7 +201,7 @@ export default function RetreatPage() {
       )}
 
       {/* Что от вас потребуется (для онлайн-курсов) */}
-      {retreat.required && (
+      {retreat.required && retreat.required.length > 0 && (
         <section className="py-16 px-6 md:px-24 bg-secondary/20">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-12 text-center">Что от вас потребуется</h2>
@@ -210,7 +220,7 @@ export default function RetreatPage() {
       )}
 
       {/* Что взять с собой (для офлайн-ретритов) */}
-      {retreat.whatToBring && (
+      {retreat.whatToBring && retreat.whatToBring.length > 0 && (
         <section className="py-16 px-6 md:px-24 bg-secondary/20">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-serif text-foreground mb-12 text-center">Что взять с собой</h2>
@@ -254,36 +264,6 @@ export default function RetreatPage() {
       )}
 
       <Footer />
-
-      {/* Стили для анимации свайпера */}
-      <style jsx>{`
-        @keyframes slide-in-right {
-          from {
-            opacity: 0;
-            transform: translateX(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        @keyframes slide-in-left {
-          from {
-            opacity: 0;
-            transform: translateX(-30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        .animate-slide-in-right {
-          animation: slide-in-right 0.5s ease-out;
-        }
-        .animate-slide-in-left {
-          animation: slide-in-left 0.5s ease-out;
-        }
-      `}</style>
     </main>
   );
 }
