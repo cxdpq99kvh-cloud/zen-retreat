@@ -47,6 +47,58 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Секция "О пространстве" */}
+      <section className="py-24 px-6 md:px-24 bg-secondary/30 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Левая часть: текст */}
+            <div>
+              <p className="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-sans">
+                О пространстве
+              </p>
+              <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-6 leading-tight">
+                Возвращение к себе,
+                <br />
+                <span className="italic text-accent">своей внутренней силе</span>
+              </h2>
+              <p className="text-lg text-muted leading-relaxed mb-6 font-sans">
+                Мы создаём уникальные практики, объединяющие древние знания об энергии тела 
+                с современными подходами к осознанности.
+              </p>
+              <p className="text-lg text-muted leading-relaxed font-sans">
+                Наши программы помогают снять напряжение, восстановить внутренний баланс 
+                и обрести ясность мышления. Каждая практика — это путь к себе настоящему.
+              </p>
+
+              {/* Декоративные элементы */}
+              <div className="flex items-center gap-4 mt-8">
+                <div className="w-12 h-0.5 bg-accent" />
+                <p className="text-sm text-foreground/70 font-serif italic">
+                  Тишина — это не отсутствие звука, а присутствие себя
+                </p>
+              </div>
+            </div>
+
+            {/* Правая часть: картинка */}
+            <div className="relative">
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl shadow-foreground/10">
+                <img
+                  src="/images/about-space.jpg"
+                  alt="Возвращение к себе"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Декоративный элемент */}
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/10 rounded-2xl -z-10" />
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-secondary rounded-full -z-10" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Секция с ретритами */}
+      <section id="retreats" className="py-24 px-6 md:px-24 bg-background relative"></section>
+
       {/* Секция с ретритами */}
       <section id="retreats" className="py-24 px-6 md:px-24 bg-background relative">
         <div className="max-w-7xl mx-auto">
