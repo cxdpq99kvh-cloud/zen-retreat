@@ -7,6 +7,7 @@ import ShopSection from "@/components/ShopSection";
 import HeroText from "@/components/HeroText";
 import Stardust from "@/components/Stardust";
 import Footer from "@/components/Footer";
+import StatsSection from "@/components/StatsSection";
 // Trigger redeploy
 export default function Home() {
   return (
@@ -78,112 +79,7 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Статистика с тёплым градиентом, следующим за курсором */}
-              <div 
-                className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-foreground/10 relative"
-                onMouseMove={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const x = ((e.clientX - rect.left) / rect.width) * 100;
-                  const y = ((e.clientY - rect.top) / rect.height) * 100;
-                  
-                  e.currentTarget.style.setProperty('--mouse-x', `${x}%`);
-                  e.currentTarget.style.setProperty('--mouse-y', `${y}%`);
-                }}
-                style={{
-                  '--mouse-x': '50%',
-                  '--mouse-y': '50%',
-                } as React.CSSProperties}
-              >
-                {/* 8+ Лет опыта */}
-                <div className="relative group">
-                  <p 
-                    className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none transition-all duration-1000 ease-out"
-                    style={{
-                      color: 'transparent',
-                      background: `radial-gradient(
-                        circle at var(--mouse-x) var(--mouse-y),
-                        #F0C9A0 0%,
-                        #D4A373 40%,
-                        #C39262 70%,
-                        #8B6F47 100%
-                      )`,
-                      backgroundSize: '200% 200%',
-                      WebkitBackgroundClip: 'text',
-                      backgroundClip: 'text',
-                      textShadow: `
-                        inset 1px 1px 2px rgba(0,0,0,0.2),
-                        -1px -1px 0 rgba(139, 111, 71, 0.3),
-                        1px 1px 0 rgba(240, 201, 160, 0.2)
-                      `,
-                      filter: 'drop-shadow(1px 2px 3px rgba(139, 111, 71, 0.15))'
-                    }}
-                  >
-                    8+
-                  </p>
-                  
-                  <p className="text-xs text-muted font-sans uppercase tracking-wider">Лет опыта</p>
-                </div>
-
-                {/* 50+ Участников */}
-                <div className="relative group">
-                  <p 
-                    className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none transition-all duration-1000 ease-out"
-                    style={{
-                      color: 'transparent',
-                      background: `radial-gradient(
-                        circle at var(--mouse-x) var(--mouse-y),
-                        #E5B88B 0%,
-                        #D4A373 40%,
-                        #B8860B 70%,
-                        #8B6F47 100%
-                      )`,
-                      backgroundSize: '200% 200%',
-                      WebkitBackgroundClip: 'text',
-                      backgroundClip: 'text',
-                      textShadow: `
-                        inset 1px 1px 2px rgba(0,0,0,0.2),
-                        -1px -1px 0 rgba(139, 111, 71, 0.3),
-                        1px 1px 0 rgba(229, 184, 139, 0.2)
-                      `,
-                      filter: 'drop-shadow(1px 2px 3px rgba(139, 111, 71, 0.15))'
-                    }}
-                  >
-                    50+
-                  </p>
-                  
-                  <p className="text-xs text-muted font-sans uppercase tracking-wider">Участников</p>
-                </div>
-
-                {/* 10+ Ретритов */}
-                <div className="relative group">
-                  <p 
-                    className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none transition-all duration-1000 ease-out"
-                    style={{
-                      color: 'transparent',
-                      background: `radial-gradient(
-                        circle at var(--mouse-x) var(--mouse-y),
-                        #F5D4A9 0%,
-                        #C39262 40%,
-                        #A67B4F 70%,
-                        #8B6F47 100%
-                      )`,
-                      backgroundSize: '200% 200%',
-                      WebkitBackgroundClip: 'text',
-                      backgroundClip: 'text',
-                      textShadow: `
-                        inset 1px 1px 2px rgba(0,0,0,0.2),
-                        -1px -1px 0 rgba(139, 111, 71, 0.3),
-                        1px 1px 0 rgba(245, 212, 169, 0.2)
-                      `,
-                      filter: 'drop-shadow(1px 2px 3px rgba(139, 111, 71, 0.15))'
-                    }}
-                  >
-                    10+
-                  </p>
-                  
-                  <p className="text-xs text-muted font-sans uppercase tracking-wider">Ретритов</p>
-                </div>
-              </div>
+              <StatsSection />
             </div>
 
             {/* Правая часть: современная картинка */}
