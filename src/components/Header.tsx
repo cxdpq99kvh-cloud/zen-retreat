@@ -35,7 +35,7 @@ export default function Header() {
   }, [isMobileMenuOpen]);
 
   const navLinks = [
-    { href: "/#retreats", label: "Ретриты" },
+    { href: "/#retreats", label: "Курсы" },
     { href: "/#philosophy", label: "Философия" },
     { href: "/#shop", label: "Магазин" },
     { href: "/about", label: "О нас" },

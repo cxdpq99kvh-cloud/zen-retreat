@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     let text = "";
 
     if (type === "retreat") {
-      text = `🧘‍♂️ *НОВАЯ ЗАЯВКА НА РЕТРИТ*\n\n`;
+      text = `🧘‍♂️ *НОВАЯ ЗАЯВКА НА КУРС*\n\n`;
       text += `*Ретрит:* ${retreatTitle}\n`;
       text += `*Имя:* ${name}\n`;
       text += `*Телефон:* ${phone}\n`;
