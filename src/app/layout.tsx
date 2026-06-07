@@ -6,6 +6,7 @@ import { CartProvider } from "@/context/CartContext";
 import CartSidebar from "@/components/CartSidebar";
 import CartButton from "@/components/CartButton";
 import Header from "@/components/Header";
+import CursorGradient from "@/components/CursorGradient";
 
 // Fraunces НЕ поддерживает кириллицу — только латиница
 const serif = Fraunces({
@@ -104,6 +105,7 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${serif.variable} ${sans.variable}`}>
       <body className="min-h-screen">
+        <CursorGradient />
         <CartProvider>
           <Header />
           {children}

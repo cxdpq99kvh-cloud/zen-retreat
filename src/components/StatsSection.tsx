@@ -1,29 +1,13 @@
 // src/components/StatsSection.tsx
 "use client";
 
-import React from "react";
-
 export default function StatsSection() {
   return (
-    <div 
-      className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-foreground/10 relative"
-      onMouseMove={(e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        
-        e.currentTarget.style.setProperty('--mouse-x', `${x}%`);
-        e.currentTarget.style.setProperty('--mouse-y', `${y}%`);
-      }}
-      style={{
-        '--mouse-x': '50%',
-        '--mouse-y': '50%',
-      } as React.CSSProperties}
-    >
+    <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-foreground/10 relative">
       {/* 8+ Лет опыта */}
       <div className="relative group">
         <p 
-          className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none transition-all duration-1000 ease-out"
+          className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none"
           style={{
             color: 'transparent',
             background: `radial-gradient(
@@ -33,7 +17,7 @@ export default function StatsSection() {
               #C39262 70%,
               #8B6F47 100%
             )`,
-            backgroundSize: '200% 200%',
+            backgroundSize: '300% 300%', // Увеличили для более заметного эффекта
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
             textShadow: `
@@ -53,7 +37,7 @@ export default function StatsSection() {
       {/* 50+ Участников */}
       <div className="relative group">
         <p 
-          className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none transition-all duration-1000 ease-out"
+          className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none"
           style={{
             color: 'transparent',
             background: `radial-gradient(
@@ -63,7 +47,7 @@ export default function StatsSection() {
               #B8860B 70%,
               #8B6F47 100%
             )`,
-            backgroundSize: '200% 200%',
+            backgroundSize: '300% 300%',
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
             textShadow: `
@@ -83,7 +67,7 @@ export default function StatsSection() {
       {/* 10+ Ретритов */}
       <div className="relative group">
         <p 
-          className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none transition-all duration-1000 ease-out"
+          className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none"
           style={{
             color: 'transparent',
             background: `radial-gradient(
@@ -93,7 +77,7 @@ export default function StatsSection() {
               #A67B4F 70%,
               #8B6F47 100%
             )`,
-            backgroundSize: '200% 200%',
+            backgroundSize: '300% 300%',
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
             textShadow: `
