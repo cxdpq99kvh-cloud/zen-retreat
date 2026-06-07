@@ -135,28 +135,38 @@ export default function RetreatPage() {
       <section className="py-12 md:py-20 px-6 md:px-24">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
           <div className="lg:col-span-2">
-            <h2 className="text-2xl md:text-4xl font-serif text-foreground mb-4 md:mb-6">О курсе</h2>
-            <p className="text-base md:text-lg text-muted leading-relaxed mb-6 md:mb-8 font-sans">{retreat.description}</p>
+            {/* О курсе — в едином стиле */}
+            <div className="relative mb-8 md:mb-12">
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+              
+              <div className="pt-8 md:pt-10">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 leading-[1.1] tracking-tight">
+                  <span className="bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent">
+                    О курсе
+                  </span>
+                </h2>
+                <p className="text-base md:text-lg text-muted leading-relaxed font-sans">
+                  {retreat.description}
+                </p>
+              </div>
+            </div>
 
-            {/* Уникальность курса — элегантный минимализм */}
+            {/* Уникальность курса — компактный и элегантный */}
             {retreat.uniqueness && (
-              <div className="relative mb-12 md:mb-16 py-12 md:py-16">
-                {/* Декоративные линии */}
+              <div className="relative mb-8 md:mb-12 py-6 md:py-8">
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
                 
-                <div className="max-w-4xl mx-auto">
-                  {/* Заголовок с градиентом */}
-                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-8 md:mb-10 leading-[1.1] tracking-tight">
+                <div>
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif mb-4 md:mb-6 leading-[1.1] tracking-tight">
                     <span className="bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent">
                       {retreat.uniqueness.title}
                     </span>
                   </h3>
 
-                  {/* Описание с выделением ключевых слов */}
-                  <p className="text-lg md:text-xl lg:text-2xl text-muted leading-relaxed font-light">
+                  <p className="text-base md:text-lg lg:text-xl text-muted leading-relaxed font-light">
                     {retreat.uniqueness.description.split(' ').map((word, idx) => {
-                      const keywords = ['психологию', 'цигун', 'гипнотерапия', 'НЛП', 'космоэнергетика', 'ангельская терапия', 'сакральная геометрия'];
+                      const keywords = ['психологию', 'цигун', 'гипнотерапия', 'НЛП', 'космоэнергетика', 'ангельская', 'сакральная'];
                       const isKeyword = keywords.some(k => word.toLowerCase().includes(k.toLowerCase().replace(',', '')));
                       
                       return (
@@ -171,15 +181,14 @@ export default function RetreatPage() {
                     })}
                   </p>
 
-                  {/* Декоративный элемент */}
-                  <div className="mt-12 md:mt-16 flex items-center gap-6">
+                  <div className="mt-6 md:mt-8 flex items-center gap-4">
                     <div className="flex gap-2">
-                      <div className="w-2 h-2 bg-accent rounded-full" />
-                      <div className="w-2 h-2 bg-accent/60 rounded-full" />
-                      <div className="w-2 h-2 bg-accent/30 rounded-full" />
+                      <div className="w-1.5 h-1.5 bg-accent rounded-full" />
+                      <div className="w-1.5 h-1.5 bg-accent/60 rounded-full" />
+                      <div className="w-1.5 h-1.5 bg-accent/30 rounded-full" />
                     </div>
                     <div className="h-px flex-1 bg-gradient-to-r from-accent/40 to-transparent" />
-                    <p className="text-sm text-muted font-serif italic whitespace-nowrap">
+                    <p className="text-xs text-muted font-serif italic whitespace-nowrap">
                       4 уровня трансформации
                     </p>
                   </div>
