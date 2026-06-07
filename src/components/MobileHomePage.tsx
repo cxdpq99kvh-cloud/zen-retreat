@@ -1,37 +1,51 @@
 // src/components/MobileHomePage.tsx
 "use client";
 
-import StatsSection from "./StatsSection";
+import RetreatCard from "@/components/RetreatCard";
+import { retreats } from "@/data/retreats";
+import PhilosophySection from "@/components/PhilosophySection";
+import ProcessSection from "@/components/ProcessSection";
+import ShopSection from "@/components/ShopSection";
+import HeroText from "@/components/HeroText";
+import Stardust from "@/components/Stardust";
+import StatsSection from "@/components/StatsSection";
 
 export default function MobileHomePage() {
   return (
-    <>
+    <main className="min-h-screen">
       {/* Hero секция */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-foreground to-foreground/90">
-        <img
-          src="/images/hero-bg.jpg"
-          alt="Пространство тишины"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
-        />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <p className="text-accent uppercase tracking-[0.3em] text-xs mb-4 font-sans">
+      <section className="relative min-h-screen flex items-center justify-center p-6 overflow-hidden">
+        <Stardust />
+        
+        <div className="absolute top-[-10%] right-[-10%] w-[300px] h-[300px] bg-secondary/40 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[250px] h-[250px] bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+
+        <div className="relative z-10 max-w-xl text-center">
+          <p className="text-muted uppercase tracking-[0.2em] text-xs mb-4 font-sans">
             Свердловская область • Выездные практики
           </p>
-          <h1 className="text-4xl font-serif text-white mb-6 leading-tight">
-            Пространство
-            <br />
-            <span className="italic">Тишины</span>
-          </h1>
-          <p className="text-base text-white/80 leading-relaxed mb-8 font-sans">
-            В мире постоянного шума и бесконечных уведомлений мы забываем слышать себя. 
-            Наши практики — это не побег от реальности, а возвращение к ней.
+          
+          <HeroText />
+          
+          <p className="text-base text-muted max-w-sm mx-auto mb-8 leading-relaxed font-light">
+            Оставь городской шум позади. Погрузись в энергетические практики 
+            и медитации в живописных уголках уральской природы.
           </p>
-          <a
-            href="#retreats"
-            className="inline-block bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full font-sans uppercase tracking-wider transition-all duration-300"
-          >
-            Ближайшие курсы
-          </a>
+          
+          <div className="flex flex-col gap-3 justify-center">
+            <a 
+              href="#retreats" 
+              className="px-6 py-3 bg-accent text-white rounded-full font-sans text-sm uppercase tracking-wider hover:bg-accent-hover transition-all duration-300 shadow-lg shadow-accent/20"
+            >
+              Ближайшие курсы
+            </a>
+            <a 
+              href="#shop" 
+              className="px-6 py-3 border border-foreground/20 text-foreground rounded-full font-sans text-sm uppercase tracking-wider hover:bg-secondary/50 transition-all duration-300"
+            >
+              Наша продукция
+            </a>
+          </div>
         </div>
       </section>
 
@@ -39,14 +53,14 @@ export default function MobileHomePage() {
       <section className="py-12 px-6 bg-background relative overflow-hidden">
         <div className="absolute top-1/4 left-0 w-[300px] h-[300px] bg-accent/10 rounded-full blur-[100px] -translate-x-1/2" />
         
-        <div className="max-w-4xl mx-auto relative">
+        <div className="max-w-xl mx-auto relative">
           <p className="text-accent uppercase tracking-[0.3em] text-xs mb-4 font-sans">
             О пространстве
           </p>
           <h2 className="text-3xl font-serif text-foreground mb-6 leading-tight">
             Возвращение к себе,
             <br />
-            <span className="bg-gradient-to-r from-accent to-accent/60 bg-clip-text text-transparent italic">
+            <span className="bg-gradient-to-r from-accent to-accent/60 bg-clip-text text-transparent italic pb-2 inline-block">
               своей внутренней силе
             </span>
           </h2>
@@ -86,7 +100,7 @@ export default function MobileHomePage() {
           </div>
 
           {/* Статистика */}
-          <div className="pt-12">
+          <div className="pt-8">
             <StatsSection />
           </div>
         </div>
@@ -94,7 +108,7 @@ export default function MobileHomePage() {
 
       {/* Расписание */}
       <section id="retreats" className="py-12 px-6 bg-background">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-xl mx-auto">
           <div className="text-center mb-10">
             <p className="text-accent uppercase tracking-[0.2em] text-xs mb-3 font-sans">
               Расписание
@@ -109,10 +123,17 @@ export default function MobileHomePage() {
 
           {/* Карточки курсов */}
           <div className="space-y-6">
-            {/* Здесь будут карточки курсов - их нужно импортировать из основного файла */}
+            {retreats.map((retreat) => (
+              <RetreatCard key={retreat.id} retreat={retreat} />
+            ))}
           </div>
         </div>
       </section>
-    </>
+
+      {/* Остальные секции */}
+      <PhilosophySection />
+      <ProcessSection />
+      <ShopSection />
+    </main>
   );
 }
