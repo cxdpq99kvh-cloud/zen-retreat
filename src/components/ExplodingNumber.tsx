@@ -13,7 +13,7 @@ export default function ExplodingNumber({ number, label, gradientColors }: Explo
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isExploding, setIsExploding] = useState(false);
   const particlesRef = useRef<any[]>([]);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | undefined>(undefined); // ✅ Исправлено
   const mouseRef = useRef({ x: 50, y: 50 });
 
   useEffect(() => {
