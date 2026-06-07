@@ -138,88 +138,50 @@ export default function RetreatPage() {
             <h2 className="text-2xl md:text-4xl font-serif text-foreground mb-4 md:mb-6">О курсе</h2>
             <p className="text-base md:text-lg text-muted leading-relaxed mb-6 md:mb-8 font-sans">{retreat.description}</p>
 
-            {/* Уникальность курса — премиальный блок */}
+            {/* Уникальность курса — элегантный минимализм */}
             {retreat.uniqueness && (
-              <div className="relative mb-12 md:mb-16">
-                {/* Декоративные элементы фона */}
-                <div className="absolute -top-20 -right-20 w-64 h-64 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
-                <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-secondary/40 rounded-full blur-[100px] pointer-events-none" />
+              <div className="relative mb-12 md:mb-16 py-12 md:py-16">
+                {/* Декоративные линии */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
                 
-                {/* Основная карточка */}
-                <div className="relative bg-gradient-to-br from-background via-background to-secondary/20 rounded-3xl overflow-hidden border border-foreground/10 shadow-2xl">
-                  {/* Верхняя декоративная полоса */}
-                  <div className="h-1 bg-gradient-to-r from-accent via-accent/60 to-transparent" />
-                  
-                  <div className="p-8 md:p-12">
-                    {/* Заголовок */}
-                    <div className="flex items-start gap-4 mb-6 md:mb-8">
-                      <div className="relative shrink-0">
-                        <div className="absolute inset-0 bg-accent/30 blur-xl rounded-2xl" />
-                        <div className="relative w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-accent to-accent/70 rounded-2xl flex items-center justify-center shadow-lg">
-                          <span className="text-2xl md:text-3xl">✨</span>
-                        </div>
-                      </div>
-                      <div className="flex-1 pt-1">
-                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif text-foreground leading-tight">
-                          {retreat.uniqueness.title}
-                        </h3>
-                      </div>
-                    </div>
+                <div className="max-w-4xl mx-auto">
+                  {/* Заголовок с градиентом */}
+                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-8 md:mb-10 leading-[1.1] tracking-tight">
+                    <span className="bg-gradient-to-r from-foreground via-accent to-foreground bg-clip-text text-transparent">
+                      {retreat.uniqueness.title}
+                    </span>
+                  </h3>
 
-                    {/* Описание */}
-                    <p className="text-base md:text-lg text-muted leading-relaxed mb-10 md:mb-12 max-w-3xl font-sans">
-                      {retreat.uniqueness.description}
+                  {/* Описание с выделением ключевых слов */}
+                  <p className="text-lg md:text-xl lg:text-2xl text-muted leading-relaxed font-light">
+                    {retreat.uniqueness.description.split(' ').map((word, idx) => {
+                      const keywords = ['психологию', 'цигун', 'гипнотерапия', 'НЛП', 'космоэнергетика', 'ангельская терапия', 'сакральная геометрия'];
+                      const isKeyword = keywords.some(k => word.toLowerCase().includes(k.toLowerCase().replace(',', '')));
+                      
+                      return (
+                        <span key={idx}>
+                          {isKeyword ? (
+                            <span className="text-accent font-serif italic">{word} </span>
+                          ) : (
+                            <span>{word} </span>
+                          )}
+                        </span>
+                      );
+                    })}
+                  </p>
+
+                  {/* Декоративный элемент */}
+                  <div className="mt-12 md:mt-16 flex items-center gap-6">
+                    <div className="flex gap-2">
+                      <div className="w-2 h-2 bg-accent rounded-full" />
+                      <div className="w-2 h-2 bg-accent/60 rounded-full" />
+                      <div className="w-2 h-2 bg-accent/30 rounded-full" />
+                    </div>
+                    <div className="h-px flex-1 bg-gradient-to-r from-accent/40 to-transparent" />
+                    <p className="text-sm text-muted font-serif italic whitespace-nowrap">
+                      4 уровня трансформации
                     </p>
-
-                    {/* Сетка уровней результата */}
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                      {retreat.uniqueness.levels.map((level, idx) => (
-                        <div 
-                          key={idx} 
-                          className="group relative"
-                        >
-                          {/* Светящийся фон при hover */}
-                          <div className="absolute -inset-1 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          
-                          {/* Карточка */}
-                          <div className="relative bg-gradient-to-br from-background to-secondary/30 rounded-2xl p-6 md:p-8 border border-foreground/10 hover:border-accent/40 transition-all duration-500 hover:shadow-xl h-full">
-                            {/* Номер уровня */}
-                            <div className="flex items-center justify-between mb-4 md:mb-6">
-                              <div className="w-10 h-10 md:w-12 md:h-12 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                                <span className="text-accent font-serif text-lg md:text-xl font-bold">
-                                  {String(idx + 1).padStart(2, '0')}
-                                </span>
-                              </div>
-                              <div className="w-2 h-2 bg-accent rounded-full group-hover:scale-150 transition-transform duration-500" />
-                            </div>
-
-                            {/* Название уровня */}
-                            <p className="text-2xl md:text-3xl font-serif text-foreground mb-3 group-hover:text-accent transition-colors duration-300">
-                              {level.name}
-                            </p>
-
-                            {/* Разделитель */}
-                            <div className="w-12 h-0.5 bg-gradient-to-r from-accent to-transparent mb-4 group-hover:w-20 transition-all duration-500" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Нижний акцент */}
-                    <div className="mt-10 md:mt-12 pt-8 border-t border-foreground/10 flex items-center gap-4">
-                      <div className="flex -space-x-2">
-                        {[...Array(4)].map((_, i) => (
-                          <div 
-                            key={i} 
-                            className="w-3 h-3 bg-accent rounded-full border-2 border-background"
-                            style={{ opacity: 1 - i * 0.2 }}
-                          />
-                        ))}
-                      </div>
-                      <p className="text-sm text-muted font-sans italic">
-                        Комплексный подход к трансформации
-                      </p>
-                    </div>
                   </div>
                 </div>
               </div>
