@@ -122,19 +122,19 @@ export default function Home() {
       {/* Секция с ретритами */}
       <section id="retreats" className="py-24 px-6 md:px-24 bg-background relative"></section>
 
-      {/* Секция с ретритами */}
-      <section id="retreats" className="py-24 px-6 md:px-24 bg-background relative">
+      {/* Секция с курсами */}
+      <section id="retreats" className="pt-8 pb-24 px-6 md:px-24 bg-background relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-sans">
               Расписание
             </p>
             <h2 className="text-4xl md:text-6xl font-serif text-foreground mb-6">
-              Ближайшие практики
+              Ближайшие курсы
             </h2>
             <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
-              Выберите ретрит, который откликается вашему внутреннему состоянию. 
-              Каждая практика — это путешествие к себе.
+              Выберите курс, который откликается вашему внутреннему состоянию. 
+              Каждая встреча — это возможность замедлиться и услышать свой внутренний голос.
             </p>
           </div>
 
