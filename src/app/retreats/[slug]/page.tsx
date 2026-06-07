@@ -81,13 +81,15 @@ export default function RetreatPage() {
     setIsSubmitting(true);
 
     try {
+      // Отправляем точно в таком же формате, как другие формы
       const response = await fetch("/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          type: "Запись на курс",
-          course: retreat.title,
-          ...formData,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: `Запись на курс: ${retreat.title}`,
         }),
       });
 
@@ -95,9 +97,12 @@ export default function RetreatPage() {
         setIsSuccess(true);
         setFormData({ name: "", email: "", phone: "" });
         setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        alert("Ошибка отправки. Попробуйте позже.");
       }
     } catch (error) {
-      console.error("Ошибка отправки:", error);
+      console.error("Ошибка:", error);
+      alert("Ошибка отправки. Проверьте интернет.");
     } finally {
       setIsSubmitting(false);
     }
