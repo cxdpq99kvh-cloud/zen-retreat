@@ -78,7 +78,7 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Статистика с градиентом, следующим за курсором */}
+              {/* Статистика с тёплым градиентом, следующим за курсором */}
               <div 
                 className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-foreground/10 relative"
                 onMouseMove={(e) => {
@@ -86,7 +86,6 @@ export default function Home() {
                   const x = ((e.clientX - rect.left) / rect.width) * 100;
                   const y = ((e.clientY - rect.top) / rect.height) * 100;
                   
-                  // Обновляем CSS-переменные для плавного следования
                   e.currentTarget.style.setProperty('--mouse-x', `${x}%`);
                   e.currentTarget.style.setProperty('--mouse-y', `${y}%`);
                 }}
@@ -103,35 +102,24 @@ export default function Home() {
                       color: 'transparent',
                       background: `radial-gradient(
                         circle at var(--mouse-x) var(--mouse-y),
-                        #D4A373 0%,
-                        #E9EDC9 35%,
-                        #8A9A86 70%,
-                        #2A3B32 100%
+                        #F0C9A0 0%,
+                        #D4A373 40%,
+                        #C39262 70%,
+                        #8B6F47 100%
                       )`,
                       backgroundSize: '200% 200%',
                       WebkitBackgroundClip: 'text',
                       backgroundClip: 'text',
                       textShadow: `
-                        inset 2px 2px 4px rgba(0,0,0,0.3),
-                        inset -2px -2px 4px rgba(255,255,255,0.05),
-                        -1px -1px 0 rgba(42, 59, 50, 0.4),
-                        1px 1px 0 rgba(212, 163, 115, 0.1)
+                        inset 1px 1px 2px rgba(0,0,0,0.2),
+                        -1px -1px 0 rgba(139, 111, 71, 0.3),
+                        1px 1px 0 rgba(240, 201, 160, 0.2)
                       `,
-                      filter: 'drop-shadow(2px 4px 6px rgba(42, 59, 50, 0.2))'
+                      filter: 'drop-shadow(1px 2px 3px rgba(139, 111, 71, 0.15))'
                     }}
                   >
                     8+
                   </p>
-                  
-                  {/* Блик на верхнем крае */}
-                  <div 
-                    className="absolute top-0 left-0 right-0 h-1/3 pointer-events-none opacity-30"
-                    style={{
-                      background: 'linear-gradient(180deg, rgba(233, 237, 201, 0.3) 0%, transparent 100%)',
-                      WebkitMaskImage: 'linear-gradient(180deg, black 0%, transparent 100%)',
-                      maskImage: 'linear-gradient(180deg, black 0%, transparent 100%)'
-                    }}
-                  />
                   
                   <p className="text-xs text-muted font-sans uppercase tracking-wider">Лет опыта</p>
                 </div>
@@ -144,34 +132,24 @@ export default function Home() {
                       color: 'transparent',
                       background: `radial-gradient(
                         circle at var(--mouse-x) var(--mouse-y),
-                        #E9EDC9 0%,
-                        #D4A373 35%,
-                        #8A9A86 70%,
-                        #2A3B32 100%
+                        #E5B88B 0%,
+                        #D4A373 40%,
+                        #B8860B 70%,
+                        #8B6F47 100%
                       )`,
                       backgroundSize: '200% 200%',
                       WebkitBackgroundClip: 'text',
                       backgroundClip: 'text',
                       textShadow: `
-                        inset 2px 2px 4px rgba(0,0,0,0.3),
-                        inset -2px -2px 4px rgba(255,255,255,0.05),
-                        -1px -1px 0 rgba(42, 59, 50, 0.4),
-                        1px 1px 0 rgba(212, 163, 115, 0.1)
+                        inset 1px 1px 2px rgba(0,0,0,0.2),
+                        -1px -1px 0 rgba(139, 111, 71, 0.3),
+                        1px 1px 0 rgba(229, 184, 139, 0.2)
                       `,
-                      filter: 'drop-shadow(2px 4px 6px rgba(42, 59, 50, 0.2))'
+                      filter: 'drop-shadow(1px 2px 3px rgba(139, 111, 71, 0.15))'
                     }}
                   >
                     50+
                   </p>
-                  
-                  <div 
-                    className="absolute top-0 left-0 right-0 h-1/3 pointer-events-none opacity-30"
-                    style={{
-                      background: 'linear-gradient(180deg, rgba(233, 237, 201, 0.3) 0%, transparent 100%)',
-                      WebkitMaskImage: 'linear-gradient(180deg, black 0%, transparent 100%)',
-                      maskImage: 'linear-gradient(180deg, black 0%, transparent 100%)'
-                    }}
-                  />
                   
                   <p className="text-xs text-muted font-sans uppercase tracking-wider">Участников</p>
                 </div>
@@ -184,35 +162,24 @@ export default function Home() {
                       color: 'transparent',
                       background: `radial-gradient(
                         circle at var(--mouse-x) var(--mouse-y),
-                        #8A9A86 0%,
-                        #E9EDC9 35%,
-                        #D4A373 70%,
-                        #2A3B32 100%
+                        #F5D4A9 0%,
+                        #C39262 40%,
+                        #A67B4F 70%,
+                        #8B6F47 100%
                       )`,
                       backgroundSize: '200% 200%',
                       WebkitBackgroundClip: 'text',
                       backgroundClip: 'text',
                       textShadow: `
-                        inset 2px 2px 4px rgba(0,0,0,0.3),
-                        inset -2px -2px 4px rgba(255,255,255,0.05),
-                        -1px -1px 0 rgba(42, 59, 50, 0.4),
-                        1px 1px 0 rgba(212, 163, 115, 0.1)
+                        inset 1px 1px 2px rgba(0,0,0,0.2),
+                        -1px -1px 0 rgba(139, 111, 71, 0.3),
+                        1px 1px 0 rgba(245, 212, 169, 0.2)
                       `,
-                      filter: 'drop-shadow(2px 4px 6px rgba(42, 59, 50, 0.2))'
+                      filter: 'drop-shadow(1px 2px 3px rgba(139, 111, 71, 0.15))'
                     }}
                   >
                     10+
                   </p>
-                  
-                  
-                  <div 
-                    className="absolute top-0 left-0 right-0 h-1/3 pointer-events-none opacity-30"
-                    style={{
-                      background: 'linear-gradient(180deg, rgba(233, 237, 201, 0.3) 0%, transparent 100%)',
-                      WebkitMaskImage: 'linear-gradient(180deg, black 0%, transparent 100%)',
-                      maskImage: 'linear-gradient(180deg, black 0%, transparent 100%)'
-                    }}
-                  />
                   
                   <p className="text-xs text-muted font-sans uppercase tracking-wider">Ретритов</p>
                 </div>
