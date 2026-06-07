@@ -63,8 +63,8 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground mb-8 leading-[1.1]">
                 Возвращение к себе,
                 <br />
-                <span className="bg-gradient-to-r from-accent to-accent/60 bg-clip-text text-transparent italic">
-                  своей внутренней силе
+                <span className="bg-gradient-to-r from-accent to-accent/60 bg-clip-text text-transparent italic pb-2 inline-block">
+                  своей внутренней силе{" "}
                 </span>
               </h2>
               <div className="space-y-6">
@@ -78,19 +78,35 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Статистика */}
+              {/* Статистика с эффектом радужных дырок */}
               <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-foreground/10">
-                <div>
-                  <p className="text-3xl md:text-4xl font-serif text-foreground mb-1">5+</p>
-                  <p className="text-xs text-muted font-sans uppercase tracking-wider">Лет опыта</p>
+                <div className="relative group">
+                  {/* Радужный фон (виден через текст) */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 via-green-500 via-yellow-500 to-pink-500 bg-[length:200%_auto] animate-gradient-x rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Текст как "дырка" */}
+                  <p className="relative text-3xl md:text-4xl font-serif mb-1 bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 via-green-500 via-yellow-500 to-pink-500 bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent">
+                    8+
+                  </p>
+                  <p className="relative text-xs text-muted font-sans uppercase tracking-wider">Лет опыта</p>
                 </div>
-                <div>
-                  <p className="text-3xl md:text-4xl font-serif text-foreground mb-1">200+</p>
-                  <p className="text-xs text-muted font-sans uppercase tracking-wider">Участников</p>
+                
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-cyan-500 via-green-500 via-yellow-500 via-pink-500 to-blue-500 bg-[length:200%_auto] animate-gradient-x rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <p className="relative text-3xl md:text-4xl font-serif mb-1 bg-gradient-to-r from-blue-500 via-cyan-500 via-green-500 via-yellow-500 via-pink-500 to-blue-500 bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent">
+                    50+
+                  </p>
+                  <p className="relative text-xs text-muted font-sans uppercase tracking-wider">Участников</p>
                 </div>
-                <div>
-                  <p className="text-3xl md:text-4xl font-serif text-foreground mb-1">15+</p>
-                  <p className="text-xs text-muted font-sans uppercase tracking-wider">Ретритов</p>
+                
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 via-red-500 via-orange-500 via-yellow-500 to-purple-500 bg-[length:200%_auto] animate-gradient-x rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <p className="relative text-3xl md:text-4xl font-serif mb-1 bg-gradient-to-r from-purple-500 via-pink-500 via-red-500 via-orange-500 via-yellow-500 to-purple-500 bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent">
+                    10+
+                  </p>
+                  <p className="relative text-xs text-muted font-sans uppercase tracking-wider">Ретритов</p>
                 </div>
               </div>
             </div>

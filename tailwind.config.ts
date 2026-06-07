@@ -27,6 +27,7 @@ const config: Config = {
       animation: {
         'fade-in': 'fadeIn 1.5s ease-in-out forwards',
         'float': 'float 6s ease-in-out infinite',
+        'gradient-x': 'gradient-x 6s ease infinite', // ← НОВАЯ анимация
       },
       keyframes: {
         fadeIn: {
@@ -36,7 +37,17 @@ const config: Config = {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
-        }
+        },
+        'gradient-x': { // ← НОВАЯ keyframe
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          },
+        },
       }
     },
   },
