@@ -28,8 +28,8 @@ export default function MobileHomePage() {
           <HeroText />
           
           <p className="text-base text-muted max-w-sm mx-auto mb-8 leading-relaxed font-light">
-            Оставь городской шум позади. Погрузись в энергетические практики 
-            и медитации в живописных уголках уральской природы.
+            Чем глубже вы в проблемах, тем тише внутренний голос.
+            Время услышать не «надо», а своё «хочу».
           </p>
           
           <div className="flex flex-col gap-3 justify-center">
