@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { type, name, phone, message, telegram, delivery, address, comment, retreatTitle } = body;
+    const { type, name, phone, message, email, telegram, delivery, address, comment, retreatTitle } = body;
 
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
     const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -24,7 +24,8 @@ export async function POST(request: Request) {
       text += `*Ретрит:* ${retreatTitle}\n`;
       text += `*Имя:* ${name}\n`;
       text += `*Телефон:* ${phone}\n`;
-      if (message) text += `*Сообщение:* ${message}\n`;
+      if (email) text += `*Email:* ${email}\n`;
+      if (message) text += `*Пожелания:* ${message}\n`;
     } else if (type === "order") {
       text = `🛒 *НОВЫЙ ЗАКАЗ*\n\n`;
       text += `*Телефон:* ${phone}\n`;

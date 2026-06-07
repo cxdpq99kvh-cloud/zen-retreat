@@ -6,7 +6,7 @@ import { retreats } from "@/data/retreats";
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Check, Mail, Phone, MessageSquare } from "lucide-react";
+import { ArrowLeft, Check } from "lucide-react";
 
 export default function RetreatPage() {
   const params = useParams();
@@ -20,6 +20,7 @@ export default function RetreatPage() {
     name: "",
     email: "",
     phone: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -90,8 +91,9 @@ export default function RetreatPage() {
           type: "retreat",
           retreatTitle: retreat.title,
           name: formData.name,
+          email: formData.email,
           phone: formData.phone,
-          message: formData.email ? `Email: ${formData.email}` : "",
+          message: formData.message,
         }),
       });
 
@@ -100,7 +102,7 @@ export default function RetreatPage() {
       }
 
       setIsSuccess(true);
-      setFormData({ name: "", email: "", phone: "" });
+      setFormData({ name: "", email: "", phone: "", message: "" });
       setTimeout(() => {
         setIsSuccess(false);
       }, 5000);
@@ -281,6 +283,20 @@ export default function RetreatPage() {
                         {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
                       </div>
 
+                      {/* Пожелания */}
+                      <div>
+                        <label className="block text-xs text-muted font-sans uppercase tracking-wider mb-2">
+                          Пожелания <span className="normal-case text-muted/60">(необязательно)</span>
+                        </label>
+                        <textarea
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          placeholder="Расскажите, что для вас важно..."
+                          rows={3}
+                          className="w-full px-4 py-3 bg-background border border-foreground/10 rounded-xl font-sans text-foreground placeholder:text-muted/50 focus:outline-none focus:border-accent transition-colors resize-none"
+                        />
+                      </div>
+
                       {/* Кнопка */}
                       <button
                         type="submit"
@@ -440,8 +456,6 @@ export default function RetreatPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
 
       <Footer />
     </main>
