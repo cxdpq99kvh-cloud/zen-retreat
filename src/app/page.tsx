@@ -78,35 +78,129 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Статистика с эффектом радужных дырок */}
+              {/* Статистика с эффектом "выдолбленных" цифр */}
               <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-foreground/10">
+                {/* 8+ Лет опыта */}
                 <div className="relative group">
-                  {/* Радужный фон (виден через текст) */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 via-green-500 via-yellow-500 to-pink-500 bg-[length:200%_auto] animate-gradient-x rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  {/* Текст как "дырка" */}
-                  <p className="relative text-3xl md:text-4xl font-serif mb-1 bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 via-green-500 via-yellow-500 to-pink-500 bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent">
-                    8+
-                  </p>
-                  <p className="relative text-xs text-muted font-sans uppercase tracking-wider">Лет опыта</p>
+                  <div className="relative inline-block">
+                    {/* Радужное свечение на "дне" вырезанной цифры */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 via-green-500 via-yellow-500 to-pink-500 bg-[length:200%_auto] animate-gradient-x blur-lg opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    {/* Сама цифра с 3D-эффектом вырезания */}
+                    <p 
+                      className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none"
+                      style={{
+                        color: 'transparent',
+                        background: 'linear-gradient(to right, #ec4899, #a855f7, #3b82f6, #22c55e, #eab308, #ec4899)',
+                        backgroundSize: '200% auto',
+                        WebkitBackgroundClip: 'text',
+                        backgroundClip: 'text',
+                        animation: 'gradient-x 6s ease infinite',
+                        textShadow: `
+                          inset 2px 2px 4px rgba(0,0,0,0.8),
+                          inset -2px -2px 4px rgba(255,255,255,0.1),
+                          0 0 20px rgba(168, 85, 247, 0.5),
+                          0 0 40px rgba(59, 130, 246, 0.3),
+                          -1px -1px 0 rgba(0,0,0,0.4),
+                          1px 1px 0 rgba(255,255,255,0.1)
+                        `,
+                        filter: 'drop-shadow(2px 4px 6px rgba(0,0,0,0.3))'
+                      }}
+                    >
+                      8+
+                    </p>
+                    
+                    {/* Блик на верхнем крае (эффект резьбы) */}
+                    <div 
+                      className="absolute top-0 left-0 right-0 h-1/3 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(180deg, black 0%, transparent 100%)',
+                        maskImage: 'linear-gradient(180deg, black 0%, transparent 100%)'
+                      }}
+                    />
+                  </div>
+                  <p className="text-xs text-muted font-sans uppercase tracking-wider">Лет опыта</p>
                 </div>
-                
+
+                {/* 50+ Участников */}
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-cyan-500 via-green-500 via-yellow-500 via-pink-500 to-blue-500 bg-[length:200%_auto] animate-gradient-x rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <p className="relative text-3xl md:text-4xl font-serif mb-1 bg-gradient-to-r from-blue-500 via-cyan-500 via-green-500 via-yellow-500 via-pink-500 to-blue-500 bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent">
-                    50+
-                  </p>
-                  <p className="relative text-xs text-muted font-sans uppercase tracking-wider">Участников</p>
+                  <div className="relative inline-block">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-cyan-500 via-green-500 via-yellow-500 via-pink-500 to-blue-500 bg-[length:200%_auto] animate-gradient-x blur-lg opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <p 
+                      className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none"
+                      style={{
+                        color: 'transparent',
+                        background: 'linear-gradient(to right, #3b82f6, #06b6d4, #22c55e, #eab308, #ec4899, #3b82f6)',
+                        backgroundSize: '200% auto',
+                        WebkitBackgroundClip: 'text',
+                        backgroundClip: 'text',
+                        animation: 'gradient-x 6s ease infinite',
+                        textShadow: `
+                          inset 2px 2px 4px rgba(0,0,0,0.8),
+                          inset -2px -2px 4px rgba(255,255,255,0.1),
+                          0 0 20px rgba(6, 182, 212, 0.5),
+                          0 0 40px rgba(34, 197, 94, 0.3),
+                          -1px -1px 0 rgba(0,0,0,0.4),
+                          1px 1px 0 rgba(255,255,255,0.1)
+                        `,
+                        filter: 'drop-shadow(2px 4px 6px rgba(0,0,0,0.3))'
+                      }}
+                    >
+                      50+
+                    </p>
+                    
+                    <div 
+                      className="absolute top-0 left-0 right-0 h-1/3 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(180deg, black 0%, transparent 100%)',
+                        maskImage: 'linear-gradient(180deg, black 0%, transparent 100%)'
+                      }}
+                    />
+                  </div>
+                  <p className="text-xs text-muted font-sans uppercase tracking-wider">Участников</p>
                 </div>
-                
+
+                {/* 10+ Ретритов */}
                 <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 via-red-500 via-orange-500 via-yellow-500 to-purple-500 bg-[length:200%_auto] animate-gradient-x rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  <p className="relative text-3xl md:text-4xl font-serif mb-1 bg-gradient-to-r from-purple-500 via-pink-500 via-red-500 via-orange-500 via-yellow-500 to-purple-500 bg-[length:200%_auto] animate-gradient-x bg-clip-text text-transparent">
-                    10+
-                  </p>
-                  <p className="relative text-xs text-muted font-sans uppercase tracking-wider">Ретритов</p>
+                  <div className="relative inline-block">
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 via-red-500 via-orange-500 via-yellow-500 to-purple-500 bg-[length:200%_auto] animate-gradient-x blur-lg opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <p 
+                      className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none"
+                      style={{
+                        color: 'transparent',
+                        background: 'linear-gradient(to right, #a855f7, #ec4899, #ef4444, #f97316, #eab308, #a855f7)',
+                        backgroundSize: '200% auto',
+                        WebkitBackgroundClip: 'text',
+                        backgroundClip: 'text',
+                        animation: 'gradient-x 6s ease infinite',
+                        textShadow: `
+                          inset 2px 2px 4px rgba(0,0,0,0.8),
+                          inset -2px -2px 4px rgba(255,255,255,0.1),
+                          0 0 20px rgba(236, 72, 153, 0.5),
+                          0 0 40px rgba(239, 68, 68, 0.3),
+                          -1px -1px 0 rgba(0,0,0,0.4),
+                          1px 1px 0 rgba(255,255,255,0.1)
+                        `,
+                        filter: 'drop-shadow(2px 4px 6px rgba(0,0,0,0.3))'
+                      }}
+                    >
+                      10+
+                    </p>
+                    
+                    <div 
+                      className="absolute top-0 left-0 right-0 h-1/3 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(180deg, black 0%, transparent 100%)',
+                        maskImage: 'linear-gradient(180deg, black 0%, transparent 100%)'
+                      }}
+                    />
+                  </div>
+                  <p className="text-xs text-muted font-sans uppercase tracking-wider">Ретритов</p>
                 </div>
               </div>
             </div>
