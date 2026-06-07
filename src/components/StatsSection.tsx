@@ -5,9 +5,9 @@ export default function StatsSection() {
   return (
     <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-foreground/10 relative">
       {/* 8+ Лет опыта */}
-      <div className="relative group">
+      <div className="relative group text-center">
         <p 
-          className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none"
+          className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-[-0.03em] select-none"
           style={{
             color: 'transparent',
             background: `radial-gradient(
@@ -35,9 +35,9 @@ export default function StatsSection() {
       </div>
 
       {/* 50+ Участников */}
-      <div className="relative group">
+      <div className="relative group text-center">
         <p 
-          className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none"
+          className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-[-0.03em] select-none"
           style={{
             color: 'transparent',
             background: `radial-gradient(
@@ -65,9 +65,9 @@ export default function StatsSection() {
       </div>
 
       {/* 10+ Ретритов */}
-      <div className="relative group">
+      <div className="relative group text-center">
         <p 
-          className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-tight select-none"
+          className="relative text-5xl md:text-6xl font-serif mb-2 font-black tracking-[-0.03em] select-none"
           style={{
             color: 'transparent',
             background: `radial-gradient(

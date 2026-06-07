@@ -36,7 +36,7 @@ export default function DesktopHomePage() {
               href="#retreats" 
               className="px-8 py-4 bg-accent text-white rounded-full font-sans text-sm uppercase tracking-wider hover:bg-accent-hover transition-all duration-300 shadow-lg shadow-accent/20"
             >
-              Ближайшие ретриты
+              Ближайшие курсы
             </a>
             <a 
               href="#shop" 
