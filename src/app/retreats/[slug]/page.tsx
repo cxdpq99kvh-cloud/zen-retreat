@@ -81,28 +81,32 @@ export default function RetreatPage() {
     setIsSubmitting(true);
 
     try {
-      // Отправляем точно в таком же формате, как другие формы
-      const response = await fetch("/api/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
+          type: "retreat",
+          retreatTitle: retreat.title,
           name: formData.name,
-          email: formData.email,
           phone: formData.phone,
-          message: `Запись на курс: ${retreat.title}`,
+          message: formData.email ? `Email: ${formData.email}` : "",
         }),
       });
 
-      if (response.ok) {
-        setIsSuccess(true);
-        setFormData({ name: "", email: "", phone: "" });
-        setTimeout(() => setIsSuccess(false), 5000);
-      } else {
-        alert("Ошибка отправки. Попробуйте позже.");
+      if (!response.ok) {
+        throw new Error("Ошибка отправки");
       }
+
+      setIsSuccess(true);
+      setFormData({ name: "", email: "", phone: "" });
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 5000);
     } catch (error) {
-      console.error("Ошибка:", error);
-      alert("Ошибка отправки. Проверьте интернет.");
+      console.error("Ошибка отправки:", error);
+      alert("Произошла ошибка. Пожалуйста, позвоните нам по телефону.");
     } finally {
       setIsSubmitting(false);
     }
